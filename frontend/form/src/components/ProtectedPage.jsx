@@ -2,9 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 const ProtectedPage = () => {
-  // Retrieve user information from local storage
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
   return (
     <div>
       <h2>Welcome, {userInfo?.name}!</h2>
