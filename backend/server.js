@@ -5,11 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 const port = 3000;
-
-// Set up middleware to parse JSON data
 app.use(express.json());
-
-// Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/myapp', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -20,8 +16,6 @@ mongoose.connect('mongodb://localhost:27017/myapp', {
   .catch((error) => {
     console.error('Failed to connect to MongoDB', error);
   });
-
-// Define the User model
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -49,16 +43,13 @@ app.post('/register', async (req, res) => {
   try {
     const { name, dateOfBirth, email, password } = req.body;
 
-    // Check if email is already registered
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ error: 'Email is already registered' });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user
     const user = new User({ name, dateOfBirth, email, password: hashedPassword });
     await user.save();
 
