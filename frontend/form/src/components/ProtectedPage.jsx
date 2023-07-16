@@ -12,9 +12,12 @@ const ProtectedPage = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
+            <th>USRNAME</th>
+            <th>DATE</th>
+            <th>ROLE</th>
+            <th>ROLE</th>
+            <th>STATUS</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
