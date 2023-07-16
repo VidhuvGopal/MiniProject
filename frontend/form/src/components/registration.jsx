@@ -32,10 +32,7 @@ const Registration = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Send registration data to Node.js API for registration
-    // Use state values for name, dateOfBirth, email, password, and confirmPassword
-
-    // After successful registration, navigate to the login page
+   
     navigate('/login');
   };
 
